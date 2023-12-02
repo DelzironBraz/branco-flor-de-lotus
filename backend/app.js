@@ -4,6 +4,7 @@ import cors from "cors";
 
 import connectDatabase from "./database/db.js";
 import authRoute from "./server/routes/auth.route.js";
+import userRoute from "./server/routes/user.route.js";
 
 dotenv.config();
 
@@ -23,12 +24,12 @@ app.use(cors());
 connectDatabase();
 
 app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 app.listen(PORT, () => {
-    try {
-        console.info(`Server is listening on port http://localhost:${PORT}`);
-    } catch (error) {
-        console.error(error);
-    }
-})
-
+  try {
+    console.info(`Server is listening on port http://localhost:${PORT}`);
+  } catch (error) {
+    console.error(error);
+  }
+});
