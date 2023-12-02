@@ -5,6 +5,7 @@ import cors from "cors";
 import connectDatabase from "./database/db.js";
 import authRoute from "./server/routes/auth.route.js";
 import userRoute from "./server/routes/user.route.js";
+import taskRoute from "./server/routes/task.route.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ connectDatabase();
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
+app.use("/task", taskRoute);
 
 app.listen(PORT, () => {
   try {
