@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import connectDatabase from "./database/db.js";
+import authRoute from "./server/routes/auth.route.js";
 
 dotenv.config();
 
@@ -11,8 +12,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-connectDatabase();
-
 // //Static files
 // app.use(express.static('public'));
 
@@ -20,6 +19,10 @@ connectDatabase();
 // app.use(expressEjsLayouts);
 // app.set('layout', './layouts/main');
 // app.set('view engine', 'ejs');
+
+connectDatabase();
+
+app.use("/auth", authRoute);
 
 app.listen(PORT, () => {
     try {
