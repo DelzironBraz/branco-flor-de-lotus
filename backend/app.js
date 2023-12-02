@@ -1,12 +1,17 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+
+import connectDatabase from "./database/db.js";
 
 dotenv.config();
-const app = express();
-const PORT = process.env.PORT;
 
+const PORT = process.env.PORT;
+const app = express();
 app.use(express.json());
+app.use(cors());
+
+connectDatabase();
 
 // //Static files
 // app.use(express.static('public'));
