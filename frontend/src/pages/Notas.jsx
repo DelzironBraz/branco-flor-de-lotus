@@ -1,9 +1,10 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar.jsx'
 
 const Notas = () => {
     return (
         <div>
-            <h1>Página do bloco de notas</h1>
+            <Sidebar/>
         </div>
     );
 };

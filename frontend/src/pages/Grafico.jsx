@@ -1,10 +1,10 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar.jsx'
 
 const Grafico = () => {
     return (
         <div>
-            <h1>Página do gráfico de progresso
-            </h1>
+            <Sidebar/>
         </div>
     );
 };

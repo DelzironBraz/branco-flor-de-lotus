@@ -1,9 +1,11 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar.jsx'
+
 
 const Calendario = () => {
     return (
         <div>
-            <h1>Página do calendário</h1>
+            <Sidebar/>
         </div>
     );
 };

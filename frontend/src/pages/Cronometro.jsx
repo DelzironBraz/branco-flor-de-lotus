@@ -1,9 +1,10 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar.jsx'
 
 const Cronometro = () => {
     return (
         <div>
-            <h1>Página do cronômetro</h1>
+            <Sidebar/>
         </div>
     );
 };

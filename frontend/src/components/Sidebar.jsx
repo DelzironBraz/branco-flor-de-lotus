@@ -8,6 +8,7 @@ import {
     FaBars
 } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
+import './Sidebar.css'
 
 const Sidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
@@ -45,7 +46,7 @@ const Sidebar = ({children}) => {
     },
     ]
     return (
-        <div className="container">
+        <div className="container_sidebar">
             <div style={{width: isOpen ? "300px" : "50px"}} className="sidebar">
                 <div className="top_section">
                     <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
@@ -62,7 +63,6 @@ const Sidebar = ({children}) => {
                     ))
                 }
             </div>
-            <main>{children}</main>
         </div>
     );
 };
