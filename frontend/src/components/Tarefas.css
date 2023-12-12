@@ -1,0 +1,146 @@
+body{
+    background: #b1ebb4;
+
+}
+
+*:focus{
+    outline:none;
+}
+
+h1{
+    font-weight: 900;
+    color: #023201;
+    text-align: center;
+}
+
+h2{
+    font-weight: 900;
+    color: #023201;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    position: relative;
+    width: 600px;
+    height: 60px;    
+    margin: 30px auto;
+    margin-bottom: 60px;
+}
+
+input{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background: #023201;
+    border:none;
+    padding-left:30px;
+    font-size:16px;
+    border-radius:10px;
+    color:white;
+}
+
+button.add{
+    position: absolute;
+    top:0;
+    right: 0;
+    background: #032202;
+    border:none;
+    color:white;
+    cursor: pointer;
+    padding: 10px 25px;
+    height: 61px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+button.add:hover{
+    color:white;
+    background: #41a94c;
+}
+
+.listaTarefas{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    width: 600px;
+    margin:auto;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    border:1px solid #023201;
+    margin-bottom: 10px;  
+    cursor: pointer;  
+    background-color: #74cd72;
+    
+
+}
+
+.item:hover{
+    background: #023201;
+}
+
+.item span{
+    text-align: start;
+    width: 100%;    
+    color: white;
+    margin-right: 10px;
+    padding: 10px 15px;
+}
+
+.item.completo{
+    display: flex;
+    justify-content: space-between;
+    background: #1e1f2e;
+    border:none;        
+    margin-bottom: 10px;  
+    cursor: pointer; 
+    opacity: 0.4;
+}
+
+.item.completo span{
+    text-align: start;
+    width: 100%;    
+    color: #4d6e55;
+    margin-right: 10px;
+    padding: 10px 15px;
+    text-decoration: line-through;
+}
+
+button.del{
+    border:none;
+    background: none;
+    color: #4d6e4d;
+    padding:15px;
+    cursor: pointer;
+}
+
+button.del:hover{
+    background: #ff004c;
+    border:none;   
+    color: white;
+    padding:15px;
+    cursor: pointer;
+}
+
+button.deleteAll{
+    border:1px solid #ff004c;
+    background: none;
+    padding:15px;
+    color: #ff004c;
+    font-weight: bold;
+    border-radius:5px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+button.deleteAll:hover{    
+    background: #ff004c;
+    color: white;
+}
+
+.icone-central{
+    max-width: 100%;
+}
