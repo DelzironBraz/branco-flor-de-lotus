@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 function CircularProgressWithLabel(props) {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+    <Box sx={{ position: 'relative', display: 'flex' }}>
       <CircularProgress variant="determinate" {...props} />
       <Box
         sx={{
@@ -37,10 +37,20 @@ export default function CircularWithValueLabel() {
   
   const progress = 75
 
-  return <CircularProgressWithLabel 
-  
-          value={progress}
-          size={200}
-          
-        />;
+  return (
+    <div>
+      <h1>Você completou</h1>
+      <br/> 
+      <br/> 
+      <CircularProgressWithLabel 
+    
+            value={progress}
+            size={350}
+            
+          />
+      <br/> 
+      <br/> 
+      <h1>de suas tarefas</h1>    
+    </div>    
+    )
 }

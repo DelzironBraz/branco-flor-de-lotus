@@ -5,8 +5,8 @@
     row-gap: 10%;
     margin-right: 10%;
     margin-left: 10%;
-    max-width: 1500px;
-    height: 600px;
+    max-width: 1200px;
+    height: 500px;
     background: #023201;
     border: 1px solid #97a096;
     font-family: Arial, Helvetica, sans-serif;
@@ -72,6 +72,7 @@
     font: inherit;
     font-size: 0.75em;
     font-weight: bold;
+    color: #f0f0f0;
   }
   
   .react-calendar__month-view__weekdays__weekday {

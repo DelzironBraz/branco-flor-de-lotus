@@ -1,7 +1,3 @@
-body{
-    background: #b1ebb4;
-
-}
 
 *:focus{
     outline:none;
@@ -42,7 +38,7 @@ input{
 
 button.add{
     position: absolute;
-    top:0;
+    top: -0.5;
     right: 0;
     background: #032202;
     border:none;

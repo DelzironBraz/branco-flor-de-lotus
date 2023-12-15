@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import Calendar from 'react-calendar'; 
-import './calendario.css';
+import './Tempo.css';
 
-function Calendario() {
+function Tempo() {
  const [date, setDate] = useState(new Date())
 
 return (
@@ -15,4 +15,4 @@ return (
 
 }
 
-export default Calendario;
+export default Tempo;
