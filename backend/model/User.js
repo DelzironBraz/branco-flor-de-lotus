@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Task from "./Task.js";
 
 const userSchema = mongoose.Schema({
   username: {
@@ -17,9 +18,9 @@ const userSchema = mongoose.Schema({
   },
   tasks: [
     {
-      type: Array,
-      ref: "Task",
-    },
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Task"
+    }
   ],
 });
 
