@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
 *{
     margin:0;
     padding:0;
@@ -11,7 +13,7 @@ main{
     padding: 20px;
 }
 .sidebar{
-    background: #685f5f;
+    background: #023946;
     color: #fff;
     height: 100vh;
     width: 200px;
@@ -24,6 +26,7 @@ main{
 }
 .logo{
     font-size: 30px;
+    font-family: 'ubuntu', sans-serif;
 }
 .bars{
     display: flex;
@@ -43,9 +46,10 @@ main{
     transition: all 0.5s;
 }
 .active{
-    background: rgb(188, 156, 156);
+    background: #1b6c8c;
     color: #000000;
 }
 .icon, .link_text{
     font-size: 20px;
+    font-family: 'ubuntu', sans-serif;
 }
