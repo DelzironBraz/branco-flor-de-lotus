@@ -1,0 +1,17 @@
+.vasco {
+    display: flex;
+    width: 100%;
+}
+
+.vasco2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.vasco3 {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}

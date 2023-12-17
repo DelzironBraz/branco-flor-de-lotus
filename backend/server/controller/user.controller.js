@@ -2,10 +2,10 @@ import User from "../../model/User.js";
 
 const findAll = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find({ userId: req.userId });
 
     if (users.length === 0) {
-      return res.status(400).send({ message: "There are no registered users" });
+      return res.status(404).send({ message: "There are no registered users for the current user" });
     }
 
     res.send(users);
@@ -16,12 +16,13 @@ const findAll = async (req, res) => {
 
 const findById = async (req, res) => {
   try {
+    const userId = req.userId;
     const id = req.params.id;
 
-    const user = await User.findById(id);
+    const user = await User.findOne({ _id: id, userId });
 
     if (!user) {
-      return res.status(400).send({ message: "User not found" });
+      return res.status(404).send({ message: "User not found for the current user" });
     }
 
     res.send(user);
@@ -30,19 +31,24 @@ const findById = async (req, res) => {
   }
 };
 
-const uptadeUser = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
+    const userId = req.userId;
     const id = req.params.id;
 
     const { name, email, password } = req.body;
 
     if (!name && !email && !password) {
-      res.status(400).send({ message: "Submit at least one field for uptade" });
+      return res.status(400).send({ message: "Submit at least one field for update" });
     }
 
-    await User.findOneAndUpdate({ _id: id }, { name, email, password });
+    const updatedUser = await User.findOneAndUpdate({ _id: id, userId }, { name, email, password }, { new: true });
 
-    res.send({ message: "User successfully uptade" });
+    if (!updatedUser) {
+      return res.status(404).send({ message: "User not found for the current user" });
+    }
+
+    res.send({ message: "User successfully updated", user: updatedUser });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
@@ -50,14 +56,19 @@ const uptadeUser = async (req, res) => {
 
 const removeUser = async (req, res) => {
   try {
+    const userId = req.userId;
     const id = req.params.id;
 
-    await User.findByIdAndDelete(id);
+    const removedUser = await User.findOneAndDelete({ _id: id, userId });
 
-    res.send({ message: "User successfully deleted" });
+    if (!removedUser) {
+      return res.status(404).send({ message: "User not found for the current user" });
+    }
+
+    res.send({ message: "User successfully deleted", user: removedUser });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
 
-export default { findAll, findById, uptadeUser, removeUser };
+export default { findAll, findById, updateUser, removeUser };

@@ -1,13 +1,13 @@
 import { Router } from "express";
-
+import authenticateToken from '../../middlewares/auth.middleware.js';
 import taskController from "../controller/task.controller.js";
 
 const router = Router();
 
-router.post("/:userId", taskController.addTask);
-router.get("/:userId", taskController.findAll);
-router.get("/:userId/:id", taskController.findById);
-router.patch("/:userId/:id", taskController.updateTask);
-router.delete("/:userId/:id", taskController.removeTask);
+router.post("/:userId", authenticateToken,taskController.addTask);
+router.get("/:userId", authenticateToken,taskController.findAll);
+router.get("/:userId/:id", authenticateToken,taskController.findById);
+router.patch("/:userId/:id", authenticateToken, taskController.updateTask);
+router.delete("/:userId/:id", authenticateToken, taskController.removeTask);
 
 export default router;

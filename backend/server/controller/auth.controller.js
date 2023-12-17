@@ -1,4 +1,5 @@
 import User from "../../model/User.js";
+import jwt from 'jsonwebtoken';
 
 const signUp = async (req, res) => {
   try {
@@ -16,9 +17,16 @@ const signUp = async (req, res) => {
 
     const saveUser = await newUser.save();
 
-    res
-      .status(201)
-      .json({ message: "User created successfully", user: saveUser });
+    try {
+    
+      const token = jwt.sign({ userId: saveUser._id }, 'key', { expiresIn: '2h' });
+
+      res.status(201).json({ message: "User created successfully", user: saveUser, token });
+    } catch (tokenError) {
+
+      console.error("Error generating token:", tokenError);
+      res.status(500).send({ error: "Error generating authentication token", message: tokenError.message });
+    }
   } catch (err) {
     res
       .status(500)
@@ -34,12 +42,13 @@ const signIn = async (req, res) => {
     if (!user) {
       res.status(404).json({ error: err.message });
     }
-
+    
     const isPasswordValid = await User.findOne({ password: password });
     if (!isPasswordValid) {
       console.log(isPasswordValid);
       res.status(401).json({ error: err.message });
     }
+
     res.status(200).json({ user });
   } catch (err) {
     res.status(500).send({ message: err.message });

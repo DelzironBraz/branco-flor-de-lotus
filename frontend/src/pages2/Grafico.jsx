@@ -1,19 +1,20 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar.jsx'
-import Tarefas from './Tarefas.jsx';
-import './Homepage.css'
+import CircularWithValueLabel from '../components/Progresso.jsx';
+import './Calendario.js'
+import '../pages/Progresso.css'
 
-const Homepage = () => {
+const Grafico = () => {
     return (
         <>
             <div className='vasco'>
                 <Sidebar/>
                 <div className='vasco2'>
-                    <Tarefas/>
+                    <CircularWithValueLabel/>
                 </div>
             </div>
         </>
     );
 };
 
-export default Homepage;
+export default Grafico;

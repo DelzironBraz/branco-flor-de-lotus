@@ -1,19 +1,19 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar.jsx'
-import Tarefas from './Tarefas.jsx';
-import './Homepage.css'
+import Tempo from '../pages/Calendario.jsx'
 
-const Homepage = () => {
+
+const Calendario = () => {
     return (
         <>
             <div className='vasco'>
                 <Sidebar/>
                 <div className='vasco2'>
-                    <Tarefas/>
+                    <Tempo/>
                 </div>
             </div>
         </>
     );
 };
 
-export default Homepage;
+export default Calendario;

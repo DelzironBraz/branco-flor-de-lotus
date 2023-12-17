@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css'
+import logo from '../assets/Logo.png'
 
 const Sidebar = ({children}) => {
     const[isOpen ,setIsOpen] = useState(false);
@@ -16,40 +17,30 @@ const Sidebar = ({children}) => {
     const menuItem=[ 
     {
         path:"/",
-        name:"homepage",
+        name:"Homepage",
         icon:<FaHome/>
 
     },
     {
         path:"/calendario",
-        name:"Calendario",
+        name:"Calendário",
         icon:<FaCalendarAlt/>
 
     },
-    {
-        path:"/cronometro",
-        name:"Cronometro",
-        icon:<FaRegClock/>
-
-    },
+    
     {
         path:"/grafico",
-        name:"Grafico",
+        name:"Progresso",
         icon:<FaChartBar/>
 
     },
-    {
-        path:"/notas",
-        name:"Notas",
-        icon:<FaEdit/>
-
-    },
+    
     ]
     return (
         <div className="container_sidebar">
             <div style={{width: isOpen ? "300px" : "50px"}} className="sidebar">
                 <div className="top_section">
-                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
+                    <img src={logo} style={{display: isOpen ? "block" : "none"}} className="logo"/>
                     <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
                         <FaBars onClick={toggle}/>
                     </div>
@@ -66,5 +57,7 @@ const Sidebar = ({children}) => {
         </div>
     );
 };
+
+                   
 
 export default Sidebar;
